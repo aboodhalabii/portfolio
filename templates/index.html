@@ -36,8 +36,19 @@
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/038/561/258/small/speaking-icons-comments-icons-person-icons-speaking-icons-symbols-and-premium-quality-graphic-design-elements-modern-signs-linear-pictograms-objects-filled-symbols-art-vector.jpg" alt="About me" class="icon">
                 <div>
                     <h2>About me</h2>
+                    {% if data %} 
+                        <p>{{data}}</p>
+                    {%else%}
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <button class = button> click me</button>
+
+                    {%endif%}
+                    <form action="/generate" method="POST">
+                        <input type="hidden" name="first_name" value="Abdullah">
+                        <input type="hidden" name="last_name" value="Abdullah">
+                        <input type="hidden" name="job_title" value="Backend">
+                        <button> click me</button>
+                    </form>
+                    
                 </div>
             </section>
 
