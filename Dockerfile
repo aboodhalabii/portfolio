@@ -4,17 +4,17 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
-# Copy requirements first (for better caching)
-COPY requirements.txt .
+# Copy lightweight requirements
+COPY requirements-light.txt .
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements-light.txt
 
 # Copy the rest of the application
 COPY . .
 
-# Expose port (change if your app runs on another port)
+# Expose port 5000
 EXPOSE 5000
 
-# Run the Flask app (update app name if needed)
-CMD ["python", "app.py"]
+# Run the Flask app with gunicorn (production server)
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000"]
