@@ -9,3 +9,5 @@ certifi==2025.10.5
 charset-normalizer==3.4.4
 idna==3.11
 MarkupSafe==3.0.3
+transformers==4.57.1
+torch==2.9.0
